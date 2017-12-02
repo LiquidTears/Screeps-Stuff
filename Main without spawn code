@@ -17,18 +17,20 @@ module.exports.loop = function () {
         }
     }
 
-    var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    console.log('Builders: ' + builders.length);
-    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    console.log('Harvesters: ' + harvesters.length);
-    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    console.log('Upgraders: ' + upgraders.length);
-    var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
-    console.log('Repairers: ' + repairers.length);
-    var guards = _.filter(Game.creeps, (creep) => creep.memory.role == 'guard');
-    console.log('Guards: ' + guards.length);
-    var archers = _.filter(Game.creeps, (creep) => creep.memory.role == 'archer');
-    console.log('Archers: ' + archers.length);
+    //var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    //console.log('Builders: ' + builders.length);
+    //var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    //console.log('Harvesters: ' + harvesters.length);
+    //var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+    //console.log('Upgraders: ' + upgraders.length);
+    //var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+    //console.log('Repairers: ' + repairers.length);
+    //var guards = _.filter(Game.creeps, (creep) => creep.memory.role == 'guard');
+    //console.log('Guards: ' + guards.length);
+    //var archers = _.filter(Game.creeps, (creep) => creep.memory.role == 'archer');
+    //console.log('Archers: ' + archers.length);
+    
+    Respawner.run();
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
