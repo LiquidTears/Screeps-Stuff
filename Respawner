@@ -1,0 +1,58 @@
+var Respawner = {
+    run: function(sourceAvai) {
+        sourceAvai = Game.rooms.sim.energyAvailable;
+
+        var harvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+        var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+        var builder = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+        var repairer = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+
+        if(harvester.length < 3) {
+            if(sourceAvai>=500){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'harvester'});
+            }else if(sourceAvai>=400){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,WORK,CARRY,MOVE], undefined, {role: 'harvester'});
+            }else if(sourceAvai>=300){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,CARRY,MOVE], undefined, {role: 'harvester'});
+            }else if(sourceAvai>=250){
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,CARRY,MOVE], undefined, {role: 'harvester'});
+            }else{
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,MOVE], undefined, {role: 'harvester'});
+            }
+        } else
+
+        if(upgrader.length < 2){
+            if(sourceAvai>=400){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'upgrader'});
+            }else if(sourceAvai>=300){
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'upgrader'});
+            }else{
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,MOVE], undefined, {role: 'upgrader'});
+            }
+        } else
+
+        if(builder.length < 1){
+            if(sourceAvai>=400){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'builder'});
+            }else if(sourceAvai>=300){
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'builder'});
+            }else if(sourceAvai>=250){
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,MOVE,MOVE], undefined, {role: 'builder'});
+            }else{
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,MOVE], undefined, {role: 'builder'});
+            }
+        } else
+
+        if(repairer.length < 2){
+            if(sourceAvai>=400){
+                var newName = Game.spawns.Spawn.createCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], undefined, {role: 'repairer'});
+            }else if(sourceAvai>=250){
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,CARRY,MOVE], undefined, {role: 'repairer'});
+            }else{
+                var newName = Game.spawns.Spawn.createCreep([WORK,CARRY,MOVE], undefined, {role: 'repairer'});
+            }
+        }
+    }
+}; 
+
+module.exports = Respawner;
