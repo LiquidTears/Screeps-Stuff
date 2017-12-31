@@ -93,6 +93,7 @@ var roleWorker = {
                             creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffffff'}});
                         }
                     }
+		    //END REPAIRER CODE
                 }
             }
         }
@@ -108,7 +109,6 @@ var roleWorker = {
                 index = index + 1;
             }
         }
-        //END REPAIRER CODE
     }
 };
 
