@@ -1,0 +1,7 @@
+This change log is starting on 12/31/17
+On the day of making this file we have two rooms, main room is RC level 6. second room is RC level 5.
+and we currently do not have working code for two spawners. All creeps are spawned from the mail room.
+
+12/31/17
+  -Updated code for the respawner to better optimize creep parts.
+  -Got rid of Harvesters, Builders, and Repairers... opting for a combined role called Worker
