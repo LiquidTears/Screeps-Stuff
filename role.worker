@@ -98,8 +98,14 @@ var roleWorker = {
         }
         else {
             var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#00ff00'}});
+            var index = 0;
+            while(index < sources.length)
+            {
+                if(creep.harvest(sources[index]) != -6) 
+                {
+                    creep.moveTo(sources[index]);
+                }
+                index = index + 1;
             }
         }
         //END REPAIRER CODE
