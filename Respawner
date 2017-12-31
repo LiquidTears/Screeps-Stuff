@@ -2,8 +2,8 @@ var Respawner = {
     run: function(sourceAvai) {
         sourceAvai = Game.rooms['E7N25'].energyAvailable;
         console.log("Source Available: " +  sourceAvai)
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-        console.log('Harvesters: ' + harvesters.length);
+        var workers = _.filter(Game.creeps, (creep) => creep.memory.role == 'worker');
+        console.log('Workers: ' + workers.length);
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         console.log('Upgraders: ' + upgraders.length);
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -19,77 +19,77 @@ var Respawner = {
         var mobileworkers = _.filter(Game.creeps, (creep) => creep.memory.role == 'mobileworker');
         console.log('Mobile Workers: ' + mobileworkers.length);
 
-        if(harvesters.length < 1) {
+        if(workers.length < 1) {
             if(sourceAvai>=1700){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1600){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1500){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1400){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1300){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1200){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1100){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=1000){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=900){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=800){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=650){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=500){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], newName, 
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else if(sourceAvai>=350){
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE], newName, 
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }else{
-                var newName = 'Harvester' + Game.time;
-                console.log('Spawning new harvester: ' + newName);
+                var newName = 'Worker' + Game.time;
+                console.log('Spawning new worker: ' + newName);
                 Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
-                    {memory: {role: 'harvester'}});
+                    {memory: {role: 'worker'}});
             }
         } else
 
