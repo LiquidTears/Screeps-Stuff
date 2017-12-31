@@ -1,26 +1,52 @@
+var roleUpgrader = require('role.upgrader');
+
 var roleHarvester = {
 
-    /** @param {Creep} creep **/
     run: function(creep) {
-	    if(creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
+	    if(creep.carry.energy == 0) {
+            creep.memory.isHarvesting = true;
+            creep.say('🔄');
         }
-        else {
+        else if(creep.carry.energy == creep.carryCapacity)
+        {
+            creep.memory.isHarvesting = false;
+            creep.say('🚧');
+        }
+        
+        if(!creep.memory.isHarvesting)
+        {
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                          return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||
-                                structure.structureType == STRUCTURE_TOWER) 
+                                structure.structureType == STRUCTURE_TOWER ||
+                                structure.structureType == STRUCTURE_STORAGE) 
                                 && structure.energy < structure.energyCapacity;
                     }
             });
-            if(targets.length > 0) {
+            if(targets.length > 0) 
+            {
+                targets.sort((a,b) => a.energy - b.energy);
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    creep.moveTo(targets[0]);
                 }
+            }
+            else
+            {
+                roleUpgrader.run(creep);
+            }
+        }
+        else
+        {
+            var sources = creep.room.find(FIND_SOURCES);
+            var index = 0;
+            while(index < sources.length)
+            {
+                if(creep.harvest(sources[index]) != -6) 
+                {
+                    creep.moveTo(sources[index]);
+                }
+                index = index + 1;
             }
         }
 	}
