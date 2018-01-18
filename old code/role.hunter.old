@@ -1,0 +1,29 @@
+var roleHunter = {
+    run: function(creep) {
+        if(creep.room != Game.flags.Attack.room){
+            creep.say('moving!');
+            creep.moveTo(Game.flags.Attack, {visualizePathStyle: {stroke: '#ff0000'}});
+        }
+        var tower = creep.pos.findClosestByPath(FIND_HOSTILE_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_TOWER) }});
+        var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(tower) 
+        {
+            creep.say('TOWER');
+            creep.moveTo(tower);
+            creep.attack(tower);
+            //console.log(test);
+            //if(creep.attack(tower) == ERR_NOT_IN_RANGE) {
+                //creep.say('TOWER');
+                //creep.moveTo(tower, {visualizePathStyle: {stroke: '#ff0000'}});
+            //}
+        }
+        else if(target) 
+        {
+            creep.say('CREEP');
+            creep.moveTo(target);
+            creep.attack(target);
+        }
+    }
+};
+
+module.exports = roleHunter;
